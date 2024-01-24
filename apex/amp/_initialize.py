@@ -1,5 +1,4 @@
 import torch
-from torch._six import string_classes
 import functools
 import numpy as np
 import sys
@@ -12,6 +11,7 @@ from ._process_optimizer import _process_optimizer
 from apex.fp16_utils import convert_network
 from ..fp16_utils import FP16_Optimizer as FP16_Optimizer_general
 from ..contrib.optimizers import FP16_Optimizer as FP16_Optimizer_for_fused
+string_classes = str
 
 if torch.distributed.is_available():
     from ..parallel import DistributedDataParallel as apex_DDP
